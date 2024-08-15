@@ -1,3 +1,9 @@
+body{
+    display: flex;
+    align-content: center;
+    height: 100vh;
+    width: 100vw;
+}
 .greycolor{
-    background-color: grey;
+    /* background-color: grey; */
 }

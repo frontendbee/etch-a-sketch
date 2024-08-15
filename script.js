@@ -1,15 +1,28 @@
 const container = document.querySelector('#container');
 container.style.backgroundColor = "#cccccc";
-container.style.height = '512px';
-container.style.width = '512px';
+container.style.height = '800px';
+container.style.width = '800px';
 container.style.display = 'flex';
 container.style.flexWrap = 'wrap';
+// container.style.margin = 'auto';
 
-let control = 0;
+const body = document.querySelector('body');
+body.style.display = 'flex';
+body.style.flexDirection = 'column';
+body.style.alignItems = 'center';
+body.style.justifyContent = 'center';
+body.style.gap = '30px';
 
-function draw(){
-    div.style.backgroundColor = 'black';
-}
+const numberBtn = document.createElement('button');
+numberBtn.textContent = 'START';
+numberBtn.style.width = 'auto';
+numberBtn.style.height = 'auto';
+body.appendChild(numberBtn);
+
+
+// function draw(){
+//     div.style.backgroundColor = 'black';
+// }
 
 function createGrid() {
     
