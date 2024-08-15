@@ -1,10 +1,13 @@
+
+
 const container = document.querySelector('#container');
 container.style.backgroundColor = "#cccccc";
 container.style.height = '800px';
 container.style.width = '800px';
 container.style.display = 'flex';
 container.style.flexWrap = 'wrap';
-// container.style.margin = 'auto';
+container.style.border = '1px black solid'
+
 
 const body = document.querySelector('body');
 body.style.display = 'flex';
@@ -20,38 +23,44 @@ numberBtn.style.height = 'auto';
 body.appendChild(numberBtn);
 
 
-// function draw(){
-//     div.style.backgroundColor = 'black';
-// }
 
-function createGrid() {
+
+numberBtn.addEventListener('click', askTheNumber);
+function askTheNumber(){
+    
+    let chosenNumber = prompt('Choose how many pixels per side:');
+    createGrid(chosenNumber);
+    
+};
+
+
+
+function createGrid(num) {
     
     container.replaceChildren(); // Rimuove tutti i figli
-
-    for (let i = 0; i < 256; i++) {
+    let numOfSquare = num*num;
+    let pixelSide = 800/num;
+    console.log(pixelSide);
+    console.log(numOfSquare);
+    for (let i = 0; i < numOfSquare; i++) {
         let div = document.createElement('div');
 
         div.id = 'div' + i;
-
-        // let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-
-        // div.style.backgroundColor = randomColor
-        div.style.width = 'calc(6.25% - 2px)';
-        div.style.height = 'calc(6.25% - 2px)';
-        div.style.border = '1px black solid';
+        
+        
+        div.style.width = pixelSide + 'px'; 
+        div.style.height = pixelSide + 'px';
+        
         div.style.backgroundColor = 'white';
         container.appendChild(div);
 
-        // div.addEventListener('hover', draw);
+       
         div.onmouseenter = function(){
-            if(div.style.backgroundColor == 'white'){
-                div.style.backgroundColor = 'grey';
-            } else if (div.style.backgroundColor == 'grey'){
-                div.style.backgroundColor = 'white';
-            }
+            
+            let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            div.style.backgroundColor = randomColor;
         }
     }
 }
 
-createGrid();
 
