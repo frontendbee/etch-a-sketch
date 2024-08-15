@@ -28,7 +28,7 @@ body.appendChild(numberBtn);
 numberBtn.addEventListener('click', askTheNumber);
 function askTheNumber(){
     
-    let chosenNumber = prompt('Choose how many pixels per side:');
+    let chosenNumber = prompt('Choose how many pixels per side (max100):');
     createGrid(chosenNumber);
     
 };
@@ -36,7 +36,10 @@ function askTheNumber(){
 
 
 function createGrid(num) {
-    
+    if (num > 100){
+        alert('Number is too big, max 100');
+        askTheNumber();
+    }
     container.replaceChildren(); // Rimuove tutti i figli
     let numOfSquare = num*num;
     let pixelSide = 800/num;
